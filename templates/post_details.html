@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} User {% endblock %}
+
+{% block content %} 
+
+
+<div class="form-container">
+    <div class="fullpost-container">
+        <div>
+            <h1 class="post_title">
+            {{post.title}}</h1>
+        </div>
+        <div>
+            <h2 class="post_content">
+                {{post.content}}</h2>
+        </div>
+        <div>
+            <h3> By {{post.user.first_name}} {{post.user.last_name}}</h3>
+        </div>
+    </div>
+    <button><a href="/users/{{user.id}}"> Cancel </a></button>
+    <button><a href="/posts/{{post.id}}/edit"> Edit </a></button>
+    <form action="/posts/{{post.id}}/delete" method="POST">
+        <button class="delete">Delete</button>
+    </form>
+    
+</div>
+
+    {% endblock %}
