@@ -18,8 +18,17 @@
         <div>
             <h3> By {{post.user.first_name}} {{post.user.last_name}}</h3>
         </div>
+    
+{% if post.tags %}
+<p>
+  <b>Tags:</b>
+  {% for tag in post.tags %}
+  <a href="/tags/{{ tag.id }}"><i class="badge badge-primary">{{ tag.name }}</i></a>
+  {% endfor %}
+</p>
+{% endif %}
     </div>
-    <button><a href="/users/{{user.id}}"> Cancel </a></button>
+    <button><a href="/users/{{post.user.id}}"> Go Back </a></button>
     <button><a href="/posts/{{post.id}}/edit"> Edit </a></button>
     <form action="/posts/{{post.id}}/delete" method="POST">
         <button class="delete">Delete</button>
